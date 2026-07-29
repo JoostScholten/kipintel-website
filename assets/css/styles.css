@@ -511,8 +511,9 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
    ======================================== */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, calc((100% - 48px) / 3));
   gap: 24px;
+  justify-content: center;
 }
 .team-card {
   background: var(--surface);
@@ -526,6 +527,7 @@ picture { display: contents; }
 
 .team-card__photo {
   width: 100%;
+  height: auto;
   aspect-ratio: 1/1;
   object-fit: cover;
   background: var(--surface-raised);
