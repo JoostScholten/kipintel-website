@@ -7,26 +7,90 @@
   <title>KipIntel &mdash; Autonomous Poultry Monitoring</title>
   <meta name="description" content="An AI powered camera system for healthier, optimally managed poultry flocks. Feather quality scoring and poultry mite monitoring.">
   <link rel="canonical" href="https://www.kipintel.com/">
+
   <link rel="alternate" hreflang="en" href="https://www.kipintel.com/">
   <link rel="alternate" hreflang="nl" href="https://www.kipintel.nl/">
-  <link rel="icon" type="image/png" href="assets/images/logo-black-no-text.png">
+  <link rel="alternate" hreflang="x-default" href="https://www.kipintel.com/">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#111111">
+
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KipIntel">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="nl_NL">
   <meta property="og:url" content="https://www.kipintel.com/">
   <meta property="og:title" content="KipIntel — Autonomous Poultry Monitoring">
-  <meta property="og:description" content="An AI powered camera system for healthier, more productive poultry flocks.">
-  <meta property="og:image" content="https://www.kipintel.com/assets/images/logo-black-no-text.png">
+  <meta property="og:description" content="An AI powered camera system for healthier, optimally managed poultry flocks. Feather quality scoring and poultry mite monitoring.">
+  <meta property="og:image" content="https://www.kipintel.com/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="KipIntel — Autonomous Poultry Monitoring">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="KipIntel — Autonomous Poultry Monitoring">
+  <meta name="twitter:description" content="An AI powered camera system for healthier, optimally managed poultry flocks. Feather quality scoring and poultry mite monitoring.">
+  <meta name="twitter:image" content="https://www.kipintel.com/og-image.png">
+  <meta name="twitter:image:alt" content="KipIntel — Autonomous Poultry Monitoring">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.kipintel.com/#organization",
+        "name": "KipIntel",
+        "url": "https://www.kipintel.com/",
+        "logo": "https://www.kipintel.com/icon-512.png",
+        "image": "https://www.kipintel.com/og-image.png",
+        "description": "An AI powered camera system for healthier, optimally managed poultry flocks.",
+        "email": "info@kipintel.nl",
+        "sameAs": ["https://www.linkedin.com/company/kipintel"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.kipintel.com/#website",
+        "name": "KipIntel",
+        "url": "https://www.kipintel.com/",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.kipintel.com/#organization" }
+      },
+      {
+        "@type": "Service",
+        "name": "Feather Quality Scoring",
+        "serviceType": "Poultry welfare monitoring",
+        "provider": { "@id": "https://www.kipintel.com/#organization" },
+        "description": "Daily, per-bird feather condition scoring from camera footage to detect stress and deterioration early."
+      },
+      {
+        "@type": "Service",
+        "name": "Poultry Mite Detection",
+        "serviceType": "Poultry health monitoring",
+        "provider": { "@id": "https://www.kipintel.com/#organization" },
+        "description": "Analysis of night-time flock activity to detect poultry red mite infestations early."
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- ======================== HEADER ======================== -->
   <header class="header" id="header">
     <div class="container header__inner">
-      <a href="#home" class="header__logo">
-        <img src="assets/images/logo-no-background.png" alt="" class="header__logo-img">
+      <a href="#home" class="header__logo" aria-label="KipIntel home">
+        <img src="assets/images/logo-no-background.png" alt="" class="header__logo-img" width="500" height="240">
       </a>
       <nav class="nav" aria-label="Main navigation">
         <a href="#products" class="nav__link">Our Software</a>
@@ -58,10 +122,15 @@
     </div>
   </nav>
 
+  <main>
+
   <!-- ======================== HERO ======================== -->
   <section class="hero" id="home">
     <div class="hero__bg">
-      <img src="assets/images/hero2.png" alt="Poultry farm monitored by KipIntel" class="hero__img">
+      <picture>
+        <source type="image/webp" srcset="assets/images/hero2.webp">
+        <img src="assets/images/hero2.jpg" alt="Poultry farm monitored by KipIntel" class="hero__img" width="1224" height="1048" fetchpriority="high" decoding="async">
+      </picture>
       <div class="hero__overlay"></div>
     </div>
     <div class="container hero__content">
@@ -122,7 +191,10 @@
     <div class="container">
       <div class="showcase">
         <div class="showcase__img-wrap">
-          <img src="assets/images/detections.jpg" alt="Feather quality scoring dashboard" class="showcase__img">
+          <picture>
+            <source type="image/webp" srcset="assets/images/detections.webp">
+            <img src="assets/images/detections.jpg" alt="Feather quality scoring dashboard" class="showcase__img" width="1200" height="892" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="showcase__text">
           <span class="showcase__label">01</span>
@@ -144,7 +216,10 @@
     <div class="container">
       <div class="showcase showcase--reverse">
         <div class="showcase__img-wrap">
-          <img src="assets/images/heatmap-night-activity.png" alt="Night activity heatmap for mite monitoring" class="showcase__img">
+          <picture>
+            <source type="image/webp" srcset="assets/images/heatmap-night-activity.webp">
+            <img src="assets/images/heatmap-night-activity.jpg" alt="Night activity heatmap for mite monitoring" class="showcase__img" width="1200" height="767" loading="lazy" decoding="async">
+          </picture>
         </div>
         <div class="showcase__text">
           <span class="showcase__label">02</span>
@@ -294,7 +369,10 @@
       <div class="team-grid">
 
         <div class="team-card">
-          <img src="assets/images/profile-joost-scholten.jpeg" alt="Joost Scholten" class="team-card__photo">
+          <picture>
+            <source type="image/webp" srcset="assets/images/profile-joost-scholten.webp">
+            <img src="assets/images/profile-joost-scholten.jpg" alt="Joost Scholten" class="team-card__photo" width="640" height="604" loading="lazy" decoding="async">
+          </picture>
           <div class="team-card__body">
             <p class="team-card__name">Joost Scholten</p>
             <p class="team-card__role">Founder</p>
@@ -306,7 +384,10 @@
         </div>
 
         <div class="team-card">
-          <img src="assets/images/profile-naftali-slob.jpeg" alt="Naftali Slob" class="team-card__photo">
+          <picture>
+            <source type="image/webp" srcset="assets/images/profile-naftali-slob.webp">
+            <img src="assets/images/profile-naftali-slob.jpg" alt="Naftali Slob" class="team-card__photo" width="640" height="640" loading="lazy" decoding="async">
+          </picture>
           <div class="team-card__body">
             <p class="team-card__name">Naftali Slob</p>
             <p class="team-card__role">Co-founder</p>
@@ -367,11 +448,13 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ======================== FOOTER ======================== -->
   <footer class="footer">
     <div class="container footer__inner">
-      <a href="#home" class="footer__logo">
-        <img src="assets/images/logo-no-background.png" alt="" class="footer__logo-img">
+      <a href="#home" class="footer__logo" aria-label="KipIntel home">
+        <img src="assets/images/logo-no-background.png" alt="" class="footer__logo-img" width="500" height="240">
       </a>
       <nav class="footer__links" aria-label="Footer navigation">
         <a href="#products" class="footer__link">Our Software</a>
