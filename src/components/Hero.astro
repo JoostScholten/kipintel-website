@@ -1,0 +1,27 @@
+---
+import type { SiteContent } from '../content/types';
+import Picture from './Picture.astro';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const hero = t.hero;
+---
+
+<section class="hero" id="home">
+  <div class="hero__bg">
+    <Picture img={hero.img} base={t.assetBase} class="hero__img" eager />
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="container hero__content">
+    <span class="hero__badge">{hero.badge}</span>
+    <h1 class="hero__title" set:html={hero.titleHtml} />
+    <p class="hero__subtitle">{hero.subtitle}</p>
+    <div class="hero__ctas">
+      <a href={hero.ctaPrimary.href} class="btn btn--primary">{hero.ctaPrimary.label}</a>
+      <a href={hero.ctaSecondary.href} class="btn btn--outline">{hero.ctaSecondary.label}</a>
+    </div>
+  </div>
+</section>

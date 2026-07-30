@@ -1,0 +1,35 @@
+---
+import type { SiteContent } from '../content/types';
+import { cardIcons } from '../content/icons';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const d = t.developments;
+---
+
+<section class="section" id="developments">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__label">{d.label}</span>
+      <h2 class="section__title">{d.title}</h2>
+      <p class="section__desc">{d.desc}</p>
+    </div>
+    <div class="products-grid">
+      {d.cards.map((card) => (
+        <div class="product-card product-card--soon">
+          <div class="product-card__header">
+            <div class="product-card__icon">
+              <Fragment set:html={cardIcons[card.icon]} />
+            </div>
+            <h3 class="product-card__title">{card.title}</h3>
+          </div>
+          <p class="product-card__desc">{card.desc}</p>
+          <span class="product-card__badge">{d.badge}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

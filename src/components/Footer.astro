@@ -1,0 +1,35 @@
+---
+import type { SiteContent } from '../content/types';
+import { flagIcons, linkedinIcon } from '../content/icons';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const f = t.footer;
+const base = t.assetBase;
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#home" class="footer__logo" aria-label={f.logoAriaLabel}>
+      <img src={`${base}assets/images/logo-no-background.png`} alt="" class="footer__logo-img" width="500" height="240">
+    </a>
+    <nav class="footer__links" aria-label={f.navAriaLabel}>
+      {f.links.map((link) => (
+        <a href={link.href} class="footer__link">{link.label}</a>
+      ))}
+    </nav>
+    <div class="footer__right">
+      <a href={f.langToggle.href} class="lang-toggle" title={f.langToggle.title}>
+        <Fragment set:html={flagIcons[f.langToggle.flag]} />
+        <span class="lang-toggle__label">{f.langToggle.label}</span>
+      </a>
+      <a href={f.linkedin.href} class="footer__social" target="_blank" rel="noopener noreferrer" title={f.linkedin.title}>
+        <Fragment set:html={linkedinIcon(16)} />
+      </a>
+      <span class="footer__copy">{f.copyright}</span>
+    </div>
+  </div>
+</footer>

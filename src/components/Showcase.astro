@@ -1,0 +1,31 @@
+---
+import type { SiteContent } from '../content/types';
+import Picture from './Picture.astro';
+
+interface Props {
+  showcase: SiteContent['showcases'][number];
+  base: string;
+}
+
+const { showcase: s, base } = Astro.props;
+---
+
+<section class={s.sectionAlt ? 'section section--alt' : 'section'} id={s.id}>
+  <div class="container">
+    <div class={s.reverse ? 'showcase showcase--reverse' : 'showcase'}>
+      <div class="showcase__img-wrap">
+        <Picture img={s.img} base={base} class="showcase__img" />
+      </div>
+      <div class="showcase__text">
+        <span class="showcase__label">{s.number}</span>
+        <h2 class="showcase__title">{s.title}</h2>
+        <p class="showcase__desc">{s.desc}</p>
+        <ul class="showcase__features">
+          {s.features.map((f) => (
+            <li class="showcase__feature">{f}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,46 @@
+---
+import type { SiteContent } from '../content/types';
+import { mailIcon } from '../content/icons';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const c = t.contact;
+---
+
+<section class="section section--alt" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 class="contact-info__title">{c.title}</h2>
+        <p class="contact-info__desc">{c.desc}</p>
+        <a href={`mailto:${c.email}`} class="contact-info__email">
+          <Fragment set:html={mailIcon} />
+          {c.email}
+        </a>
+      </div>
+
+      <form class="contact-form" action={c.formAction} method="POST">
+        {c.hiddenLanguage && (
+          <input type="hidden" name="_language" value={c.hiddenLanguage}>
+        )}
+        <div class="form-group">
+          <label class="form-label" for={c.nameField.id}>{c.nameField.label}</label>
+          <input class="form-input" type="text" id={c.nameField.id} name="name" placeholder={c.nameField.placeholder} required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for={c.emailField.id}>{c.emailField.label}</label>
+          <input class="form-input" type="email" id={c.emailField.id} name="email" placeholder={c.emailField.placeholder} required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for={c.messageField.id}>{c.messageField.label}</label>
+          <textarea class="form-textarea" id={c.messageField.id} name="message" placeholder={c.messageField.placeholder} required></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary form-submit">{c.submitLabel}</button>
+      </form>
+
+    </div>
+  </div>
+</section>

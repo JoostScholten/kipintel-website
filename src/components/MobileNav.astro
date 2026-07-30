@@ -1,0 +1,23 @@
+---
+import type { SiteContent } from '../content/types';
+import { flagIcons } from '../content/icons';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const m = t.mobileNav;
+---
+
+<nav class="nav-overlay" id="nav-overlay" aria-label={m.ariaLabel}>
+  {m.links.map((link) => (
+    <a href={link.href} class="nav-overlay__link">{link.label}</a>
+  ))}
+  <div class="nav-overlay__lang">
+    <a href={m.langToggle.href} class="lang-toggle">
+      <Fragment set:html={flagIcons[m.langToggle.flag]} />
+      <span class="lang-toggle__label">{m.langToggle.label}</span>
+    </a>
+  </div>
+</nav>

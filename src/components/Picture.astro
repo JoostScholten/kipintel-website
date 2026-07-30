@@ -1,0 +1,26 @@
+---
+import type { ImageRef } from '../content/types';
+
+interface Props {
+  img: ImageRef;
+  base: string;
+  class: string;
+  eager?: boolean;
+}
+
+const { img, base, class: className, eager = false } = Astro.props;
+const src = `${base}assets/images/${img.stem}`;
+---
+
+<picture>
+  <source type="image/webp" srcset={`${src}.webp`}>
+  <img
+    src={`${src}.jpg`}
+    alt={img.alt}
+    class={className}
+    width={img.width}
+    height={img.height}
+    {...eager ? { fetchpriority: 'high' } : { loading: 'lazy' }}
+    decoding="async"
+  >
+</picture>

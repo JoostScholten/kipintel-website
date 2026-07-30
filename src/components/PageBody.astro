@@ -1,0 +1,39 @@
+---
+// The single page composition, shared by both locales. Neither locale has its
+// own markup — EN and NL differ only by the dictionary passed in, so a
+// structural change here lands on both by construction.
+import type { SiteContent } from '../content/types';
+import Header from './Header.astro';
+import MobileNav from './MobileNav.astro';
+import Hero from './Hero.astro';
+import Products from './Products.astro';
+import Showcase from './Showcase.astro';
+import Developments from './Developments.astro';
+import HowItWorks from './HowItWorks.astro';
+import Team from './Team.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+---
+
+<Header t={t} />
+<MobileNav t={t} />
+
+<main>
+  <Hero t={t} />
+  <Products t={t} />
+  {t.showcases.map((s) => (
+    <Showcase showcase={s} base={t.assetBase} />
+  ))}
+  <Developments t={t} />
+  <HowItWorks t={t} />
+  <Team t={t} />
+  <Contact t={t} />
+</main>
+
+<Footer t={t} />

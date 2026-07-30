@@ -1,0 +1,66 @@
+---
+import type { SiteContent } from '../content/types';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const { seo } = t;
+const base = t.assetBase;
+---
+
+<!DOCTYPE html>
+<html lang={t.htmlLang}>
+<head>
+  <meta charset="UTF-8">
+  {t.hostRedirect && (
+    <script is:inline>if(location.hostname==='kipintel.nl'||location.hostname==='www.kipintel.nl')location.replace('/nl/');</script>
+  )}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{seo.title}</title>
+  <meta name="description" content={seo.description}>
+  <link rel="canonical" href={seo.canonical}>
+
+  {seo.hreflangs.map((h) => (
+    <link rel="alternate" hreflang={h.hreflang} href={h.href}>
+  ))}
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="KipIntel">
+  <meta property="og:locale" content={seo.ogLocale}>
+  <meta property="og:locale:alternate" content={seo.ogLocaleAlternate}>
+  <meta property="og:url" content={seo.ogUrl}>
+  <meta property="og:title" content={seo.ogTitle}>
+  <meta property="og:description" content={seo.ogDescription}>
+  <meta property="og:image" content={seo.ogImage}>
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content={seo.ogImageAlt}>
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={seo.twitterTitle}>
+  <meta name="twitter:description" content={seo.twitterDescription}>
+  <meta name="twitter:image" content={seo.twitterImage}>
+  <meta name="twitter:image:alt" content={seo.twitterImageAlt}>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href={`${base}assets/css/styles.css?v=2`}>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(seo.jsonLd, null, 2)} />
+</head>
+<body>
+  <slot />
+  <script src={`${base}assets/js/main.js`} is:inline></script>
+</body>
+</html>

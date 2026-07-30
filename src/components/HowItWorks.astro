@@ -1,0 +1,31 @@
+---
+import type { SiteContent } from '../content/types';
+
+interface Props {
+  t: SiteContent;
+}
+
+const { t } = Astro.props;
+const h = t.howItWorks;
+---
+
+<section class="section section--alt" id="how-it-works">
+  <div class="container">
+    <div class="section__header">
+      <span class="section__label">{h.label}</span>
+      <h2 class="section__title">{h.title}</h2>
+      <p class="section__desc">{h.desc}</p>
+    </div>
+    <div class="steps">
+      {h.steps.map((step) => (
+        <div class="step">
+          <div class="step__number">{step.number}</div>
+          <div>
+            <h3 class="step__title">{step.title}</h3>
+            <p class="step__desc">{step.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
