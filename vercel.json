@@ -13,6 +13,10 @@
       "has": [
         { "type": "host", "value": "www.kipintel.nl" }
       ]
+    },
+    {
+      "source": "/algemene-voorwaarden",
+      "destination": "/algemene-voorwaarden/index.html"
     }
   ],
   "headers": [

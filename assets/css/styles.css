@@ -680,12 +680,19 @@ picture { display: contents; }
 .footer__right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
 }
 .footer__copy {
   font-size: 0.875rem;
   color: var(--text-subtle);
 }
+.footer__legal {
+  font-size: 0.875rem;
+  color: var(--text-subtle);
+  transition: color var(--transition);
+}
+.footer__legal:hover { color: var(--text-muted); }
 .footer__social {
   display: flex;
   align-items: center;
@@ -719,6 +726,57 @@ picture { display: contents; }
 .nav-overlay__link:hover { color: var(--text); }
 .nav-overlay__lang {
   margin-top: 20px;
+}
+
+/* ========================================
+   LEGAL PAGE (/algemene-voorwaarden)
+   ======================================== */
+.legal { padding: calc(var(--header-h) + 64px) 0 96px; }
+.legal__container { max-width: 820px; }
+.legal__title {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.legal__intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin-bottom: 48px;
+}
+.legal__heading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.legal__docs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+.legal__doc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.legal__doc-title { font-weight: 600; }
+.legal__doc-meta { font-size: 0.85rem; color: var(--text-muted); }
+.legal__doc-desc { font-size: 0.9rem; color: var(--text-muted); margin-top: 6px; }
+.legal__doc-actions { display: flex; gap: 8px; flex-shrink: 0; }
+.legal__doc-actions .btn { padding: 8px 14px; font-size: 0.85rem; }
+.legal__note { font-size: 0.95rem; color: var(--text-muted); }
+.legal__note a { color: var(--green); }
+.legal__note a:hover { text-decoration: underline; }
+
+@media (max-width: 600px) {
+  .legal__doc { flex-direction: column; align-items: flex-start; }
 }
 
 /* ========================================
