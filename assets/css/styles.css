@@ -591,13 +591,13 @@ picture { display: contents; }
   gap: 8px;
   font-size: 0.9rem;
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--green);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 10px 16px;
   transition: border-color var(--transition), color var(--transition);
 }
-.contact-info__email:hover { border-color: var(--border-hover); color: var(--text); }
+.contact-info__email:hover { border-color: var(--green); }
 
 .contact-form {
   display: flex;
